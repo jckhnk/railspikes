@@ -9,3 +9,4 @@ public/system
 .idea
 *.swp
 *.swo
+Gemfile.lock
