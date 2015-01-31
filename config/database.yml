@@ -1,0 +1,5 @@
+development:
+  adapter: postgresql
+  database: spikes_development
+  username: jllamas
+

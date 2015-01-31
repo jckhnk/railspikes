@@ -1,0 +1,31 @@
+!!!
+%html
+%head
+  %title
+    SpiKeS
+  = stylesheet_link_tag    "application", :media => "all"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+
+%body
+  .header
+    .container
+      .row
+        .span12
+          %h1
+            SpiKeS
+          %p
+            Edit this text in app/views/layouts/application.html.haml
+  .content
+    .container
+      .row
+        = yield
+
+  .footer
+    .container
+      .row
+        .span12
+          %p
+            This is the footer, edit this text in app/views/layouts/application.html.haml
+        
+
