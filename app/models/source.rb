@@ -3,4 +3,15 @@ class Source < ActiveRecord::Base
                   :ra_2, :dec_2, :flux_2, :unc_2, :n_obs_2, :sub_2, :xsc_2, :w2mag_2, :e_w2mag_2,
                   :i1, :i2
 
+  def self.test_data
+
+  	data = []
+  	self.all.each do |r| 
+  		data << [r.i1, r.i2]
+  	end
+
+  	return data
+
+ 	end
+
 end
