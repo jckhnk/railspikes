@@ -15,6 +15,20 @@
           %h1
             SpiKeS Admin
 
+
+  - if flash[:notice]
+    .container
+      .row
+        .span12
+          .alert.alert-success{:onclick => "$(this).hide()", :style => "cursor: pointer;" }
+            = flash[:notice]
+  - if flash[:error]
+    .container
+      .row
+        .span12
+          .alert.alert-error{:onclick => "$(this).hide()", :style => "cursor: pointer;" }
+            - flash[:error].each do |k,v|
+              = k.to_s.capitalize.gsub("_", " ") + " " + v.first.to_s + ". "
   .content
     .container
       .row
