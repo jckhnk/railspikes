@@ -1,0 +1,9 @@
+= form_tag admin_upload_path, :method => :post, :multipart => true do 
+	%label
+		test
+	= file_field_tag :myfile
+	
+	%br
+
+	%button.btn.btn-primary{:type => "submit"}
+		submit
