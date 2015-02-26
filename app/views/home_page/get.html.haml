@@ -1,34 +1,3 @@
 .span12
-  %h3
-    Homepage
-.span6
-  .well
-    %p
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-.span6
-  .well
-    %p
-      Edit this text in app/views/home_page/get.html.haml
-.plot
-  .span12
-    #flot
-
-:javascript
-  var data = #{ Source.test_data };
-  
-  var plot = $.plot($("#flot"), [data], {
-    series: {
-        lines: { show: false },
-        points: { show: true, fill: 1, fillColor: false }
-    },
-    xaxis: {
-    },
-    yaxis: {
-    },
-    grid: {
-      hoverable: true,
-      clickable: true
-    },
-    legend: {
-    }
-  });
+	%h2
+		Homepage
