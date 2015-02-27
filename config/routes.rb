@@ -1,7 +1,9 @@
 Railspikes::Application.routes.draw do
-  root :to => 'home_page#get'
+  root :to => 'plots#get'
 
   map_restfully :plot
+
+  map_restfully :download
 
 	namespace :admin do
 		root :to => "uploads#get"

@@ -19,8 +19,8 @@ class Admin::UploadsController < Admin::AdminController
 		# while Source.last != nil
 		# 	Source.last.delete
 		# end
-	# SimpleSource.destroy_all
-	Kic.destroy_all
+		# SimpleSource.destroy_all
+		Kic.destroy_all
 
 		require 'csv'
 		csv_text = File.read(params['myfile'].tempfile.path)
