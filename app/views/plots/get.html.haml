@@ -1,0 +1,60 @@
+.plot
+  .span12
+    #flot
+
+.form
+  .span12
+    = form_tag plot_path, :method => :post do
+      .row
+        .span3
+          %label
+            SQL constraint
+          = text_field_tag :sql_query, params[:sql_query], :class => "span3"
+        .span2
+          %label
+            x axis
+          = select_tag :x, options_for_select(Kic.column_names, params[:x]), :include_blank => true, :class => "span2"
+        .span2
+          %label
+            y axis
+          = select_tag :y, options_for_select(Kic.column_names, params[:y]), :include_blank => true, :class => "span2"
+        .span5
+          %label
+            &nbsp;
+          %button.btn.btn-primary{:type => "submit", :name => "button", :value => "plot"}
+            plot x and y
+          %button.btn.btn-info{:type => "submit", :name => "button", :value => "download_xy"}
+            download x and y
+          %button.btn.btn-inverse{:type => "submit", :name => "button", :value => "download_all"}
+            download all        
+      .row
+        .span1
+          %label
+            random
+          = check_box_tag :sample, params[:sample], params[:sample].present?
+        .span2
+          %label
+            sample size
+          = text_field_tag :sample_size, params[:sample_size]
+
+
+:javascript
+
+  var data = #{ @data };
+
+  var plot = $.plot($("#flot"), [data], {
+    series: {
+        lines: { show: false },
+        points: { show: true, fill: 1, fillColor: false }
+    },
+    xaxis: {
+    },
+    yaxis: {
+    },
+    grid: {
+      hoverable: true,
+      clickable: true
+    },
+    legend: {
+    }
+  });
