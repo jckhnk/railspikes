@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 
+gem 'i18n', '0.6.11'
 gem 'pg', '0.11.0'
 gem 'xml-simple'
 gem 'paperclip', '3.4.2'
