@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-puts "Removing all sources"
+puts "Removing all Source recrods"
 Source.destroy_all
 
-puts "Generating 50 fake source records"
+puts "Generating 50 fake Source records"
 50.times do |i|
   multi = (1..100).to_a.shuffle.shuffle.shuffle.first
   record = Source.create({
@@ -35,6 +35,24 @@ puts "Generating 50 fake source records"
     :i2        => (multi * i.to_f / [2, 3, 4].shuffle.first)
   })
   
+  puts record.to_json
+  puts "---------"
+end
+
+puts "---------"
+puts "Removing all Kic recrods"
+Kic.destroy_all
+
+puts "Generating 50 fake Kic records"
+50.times do |i|
+  multi = (1..100).to_a.shuffle.shuffle.shuffle.first
+  attrs = {}
+  
+  Kic.column_names.each do |n|
+    attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
+  end
+
+  record = Kic.create(attrs)
   puts record.to_json
   puts "---------"
 end
