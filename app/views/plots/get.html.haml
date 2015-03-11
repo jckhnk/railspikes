@@ -37,10 +37,15 @@
             sample size
           = text_field_tag :sample_size, params[:sample_size]
 
+%hr
+%p
+  click a data point to see all fields
+#click_data
+  
 
 :javascript
 
-  var data = #{ @data };
+  var data = #{ @data.to_json };
 
   var plot = $.plot($("#flot"), [data], {
     series: {
@@ -58,3 +63,37 @@
     legend: {
     }
   });
+
+  $("#flot").bind("plotclick", function (event, pos, item) {
+    if (item) {
+      formatData(item.series.data[item.dataIndex][2]);
+    }
+  });
+
+  function formatData(data) { 
+
+    var json = data;
+    var html = ''
+    
+    for (var i in json) {
+      html += '<div class="span2">'
+      html += '<dl>'
+      html += '<dt>'
+      html += i
+      html += '</dt>'
+      html += '<dd>'
+      if (i == 'kic_tm_designation') {
+        html += '<a href="/url/to/blah">'
+        html += json[i]
+        html += '</a>'
+      } else {
+        html += json[i]
+      }
+      html += '</dd>'
+      html += '</dl>'
+      html += '</div>'
+    }
+
+    $("#click_data").html(html);
+
+  }

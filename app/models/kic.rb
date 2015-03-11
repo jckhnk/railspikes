@@ -18,4 +18,16 @@ class Kic < ActiveRecord::Base
   	return Kic.column_names.map{|c| self.send(c)}
   end
 
+  def build_plot_data(x, y)
+    data = []
+    hash_data = {}
+    data << self.send(x)
+    data << self.send(y)
+    Kic.column_names.each do |c|
+      hash_data[c] = self.send(c)
+    end
+    data << hash_data
+    return data
+  end
+
 end

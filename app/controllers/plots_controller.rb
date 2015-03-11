@@ -27,20 +27,21 @@ class PlotsController < ApplicationController
 		# raise [sql_query, sql_query_clean].inspect
 		# raise sql_query_clean.inspect
 		if sample == "on"
-			result = Kic.where(sql_query).order("random()").limit(sample_size)
+			@result = Kic.where(sql_query).order("random()").limit(sample_size)
 		else
-			result = Kic.where(sql_query)
+			@result = Kic.where(sql_query)
 		end
-		@data = result.pluck(x).zip(result.pluck(y))
-		@x = x
-		@y = y
+		# @data = @result.pluck(x).zip(@result.pluck(y))
+		@data = @result.map{|s| s.build_plot_data(x, y)}
+		# @x = x
+		# @y = y
 
 		require 'csv'
 
 		if params[:button] == 'download_xy'
 			csv = CSV.generate do |csv|
 				csv << (Kic.csv_column_names + [x, y])
-				result.each do |r|
+				@result.each do |r|
 					csv << r.to_csv_xy(x, y)
 				end
 			end
@@ -50,7 +51,7 @@ class PlotsController < ApplicationController
 		if params[:button] == 'download_all'
 			csv = CSV.generate do |csv|
 				csv << (Kic.column_names)
-				result.each do |r|
+				@result.each do |r|
 					csv << r.to_csv
 				end
 			end
