@@ -6,9 +6,13 @@
   .span12
     = form_tag plot_path, :method => :post do
       .row
+        .span12
+          = "Columns: " + Test2SpikesKoi.column_names.join(", ")
+      %br
+      .row
         .span3
           %label
-            SQL constraint
+            SQL (e.g. i1i2color > 0.1)
           = text_field_tag :sql_query, params[:sql_query], :class => "span3"
         .span2
           %label
