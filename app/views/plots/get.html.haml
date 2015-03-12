@@ -76,10 +76,10 @@
     var html = ''
     
     for (var i in json) {
-      if (i == 'Koikic_ra') {
+      if (i == 'kic_ra') {
         var ra = json[i];
       }
-      if (i == 'Koikic_dec') {
+      if (i == 'kic_dec') {
         var dec = json[i];
       }
     }
@@ -90,7 +90,7 @@
       html += i
       html += '</dt>'
       html += '<dd>'
-      if (i == 'Koikic_tm_designation') {
+      if (i == 'kic_kepler_id') {
         html += '<a href="http://irsa.ipac.caltech.edu/cgi-bin/FinderChart/nph-finder?locstr='
         html += ra
         html += '+'

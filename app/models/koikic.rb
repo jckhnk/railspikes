@@ -4,7 +4,7 @@ class Koikic < ActiveRecord::Base
   def self.column_names
   	fields = self.columns.map{|c| c.name}
   	newfields = fields - ["id", "created_at", "updated_at"]
-    return [newfields[-1]]+newfields[0..-2]
+    return [newfields[15]]+newfields[0..14]+newfields[16..-1]
   end
 
   def self.csv_column_names
