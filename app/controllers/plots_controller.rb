@@ -11,10 +11,10 @@ class PlotsController < ApplicationController
 		# raise(params.inspect)
 		x = params[:x]
 		y = params[:y]
-		unless Koikic.column_names.include?(x) && Koikic.column_names.include?(y)
+		unless Test2SpikesKoi.column_names.include?(x) && Test2SpikesKoi.column_names.include?(y)
 			raise "params not allowed".inspect
 		end
-		# raise (Koikic.csv_column_names + [x, y]).join(',').inspect
+		# raise (Test2SpikesKoi.csv_column_names + [x, y]).join(',').inspect
 		if params[:sql_query].blank?
 			sql_query = "(#{x} is not NULL) AND (#{y} is not NULL)"
 		else
@@ -27,9 +27,9 @@ class PlotsController < ApplicationController
 		# raise [sql_query, sql_query_clean].inspect
 		# raise sql_query_clean.inspect
 		if sample == "on"
-			@result = Koikic.where(sql_query).order("random()").limit(sample_size)
+			@result = Test2SpikesKoi.where(sql_query).order("random()").limit(sample_size)
 		else
-			@result = Koikic.where(sql_query)
+			@result = Test2SpikesKoi.where(sql_query)
 		end
 		# @data = @result.pluck(x).zip(@result.pluck(y))
 		@data = @result.map{|s| s.build_plot_data(x, y)}
@@ -40,7 +40,7 @@ class PlotsController < ApplicationController
 
 		if params[:button] == 'download_xy'
 			csv = CSV.generate do |csv|
-				csv << (Koikic.csv_column_names + [x, y])
+				csv << (Test2SpikesKoi.csv_column_names + [x, y])
 				@result.each do |r|
 					csv << r.to_csv_xy(x, y)
 				end
@@ -50,7 +50,7 @@ class PlotsController < ApplicationController
 
 		if params[:button] == 'download_all'
 			csv = CSV.generate do |csv|
-				csv << (Koikic.column_names)
+				csv << (Test2SpikesKoi.column_names)
 				@result.each do |r|
 					csv << r.to_csv
 				end
