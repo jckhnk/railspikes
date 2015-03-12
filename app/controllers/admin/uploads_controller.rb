@@ -20,7 +20,7 @@ class Admin::UploadsController < Admin::AdminController
 		# 	Source.last.delete
 		# end
 		# SimpleSource.destroy_all
-		Kic.destroy_all
+		KoiTest.destroy_all
 
 		require 'csv'
 		csv_text = File.read(params['myfile'].tempfile.path)
@@ -28,12 +28,12 @@ class Admin::UploadsController < Admin::AdminController
 		rows = []
 		csv.each do |row|
 		  # SimpleSource.create(row.to_hash)
-		  Kic.create(row.to_hash)
+		  KoiTest.create(row.to_hash)
 		  # rows << row.to_hash
 		end
 
 		# redirect_to admin_upload_path, :notice => "rows ingested: "+ SimpleSource.count.to_s
-		redirect_to admin_upload_path, :notice => "rows ingested: "+ Kic.count.to_s
+		redirect_to admin_upload_path, :notice => "rows ingested: "+ KoiTest.count.to_s
 		# redirect_to admin_upload_path, :notice => rows
 		# redirect_to admin_upload_path, :notice => Page.all
 

@@ -13,11 +13,11 @@
         .span2
           %label
             x axis
-          = select_tag :x, options_for_select(Kic.column_names, params[:x]), :include_blank => true, :class => "span2"
+          = select_tag :x, options_for_select(KoiTest.column_names, params[:x]), :include_blank => true, :class => "span2"
         .span2
           %label
             y axis
-          = select_tag :y, options_for_select(Kic.column_names, params[:y]), :include_blank => true, :class => "span2"
+          = select_tag :y, options_for_select(KoiTest.column_names, params[:y]), :include_blank => true, :class => "span2"
         .span5
           %label
             &nbsp;
@@ -76,10 +76,10 @@
     var html = ''
     
     for (var i in json) {
-      if (i == 'kic_ra') {
+      if (i == 'KoiTest_ra') {
         var ra = json[i];
       }
-      if (i == 'kic_dec') {
+      if (i == 'KoiTest_dec') {
         var dec = json[i];
       }
     }
@@ -90,7 +90,7 @@
       html += i
       html += '</dt>'
       html += '<dd>'
-      if (i == 'kic_tm_designation') {
+      if (i == 'KoiTest_tm_designation') {
         html += '<a href="http://irsa.ipac.caltech.edu/cgi-bin/FinderChart/nph-finder?locstr='
         html += ra
         html += '+'

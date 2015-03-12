@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150312025708) do
+ActiveRecord::Schema.define(:version => 20150312041951) do
 
   create_table "kics", :force => true do |t|
     t.float   "kic_ra"
@@ -161,6 +161,62 @@ ActiveRecord::Schema.define(:version => 20150312025708) do
     t.integer  "ContaminationFlag"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "koikics", :force => true do |t|
+    t.float    "kic_ra"
+    t.float    "kic_dec"
+    t.float    "kic_pmra"
+    t.float    "kic_pmdec"
+    t.float    "kic_umag"
+    t.float    "kic_gmag"
+    t.float    "kic_rmag"
+    t.float    "kic_imag"
+    t.float    "kic_zmag"
+    t.float    "kic_gredmag"
+    t.float    "kic_d51mag"
+    t.float    "kic_jmag"
+    t.float    "kic_hmag"
+    t.float    "kic_kmag"
+    t.float    "kic_kepmag"
+    t.integer  "kic_kepler_id"
+    t.integer  "kic_tmid"
+    t.float    "kic_scpid"
+    t.integer  "kic_altid"
+    t.integer  "kic_altsource"
+    t.integer  "kic_galaxy"
+    t.integer  "kic_blend"
+    t.integer  "kic_variable"
+    t.integer  "kic_teff"
+    t.float    "kic_logg"
+    t.float    "kic_feh"
+    t.float    "kic_ebminusv"
+    t.float    "kic_av"
+    t.float    "kic_radius"
+    t.string   "kic_cq"
+    t.integer  "kic_pq"
+    t.integer  "kic_aq"
+    t.integer  "kic_catkey"
+    t.integer  "kic_scpkey"
+    t.float    "kic_parallax"
+    t.float    "kic_glon"
+    t.float    "kic_glat"
+    t.float    "kic_pmtotal"
+    t.float    "kic_grcolor"
+    t.float    "kic_jkcolor"
+    t.float    "kic_gkcolor"
+    t.float    "kic_degree_ra"
+    t.integer  "kic_fov_flag"
+    t.string   "kic_tm_designation"
+    t.float    "ukirt_j"
+    t.float    "I1_mag"
+    t.float    "I2_mag"
+    t.float    "I1_unc"
+    t.float    "I2_unc"
+    t.integer  "I1_obs"
+    t.integer  "I2_obs"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "kois", :force => true do |t|
