@@ -3,7 +3,8 @@ class Kic < ActiveRecord::Base
 
   def self.column_names
   	fields = self.columns.map{|c| c.name}
-  	return fields - ["id", "created_at", "updated_at"]
+  	newfields = fields - ["id", "created_at", "updated_at"]
+    return [newfields[-1]]+newfields[0..-2]
   end
 
   def self.csv_column_names

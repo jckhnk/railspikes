@@ -76,6 +76,14 @@
     var html = ''
     
     for (var i in json) {
+      if (i == 'kic_ra') {
+        var ra = json[i];
+      }
+      if (i == 'kic_dec') {
+        var dec = json[i];
+      }
+    }
+    for (var i in json) {
       html += '<div class="span2">'
       html += '<dl>'
       html += '<dt>'
@@ -83,7 +91,12 @@
       html += '</dt>'
       html += '<dd>'
       if (i == 'kic_tm_designation') {
-        html += '<a href="/url/to/blah">'
+        html += '<a href="http://irsa.ipac.caltech.edu/cgi-bin/FinderChart/nph-finder?locstr='
+        html += ra
+        html += '+'
+        html += dec
+        html += '&subsetsize=3.0'
+        html += '">'
         html += json[i]
         html += '</a>'
       } else {
