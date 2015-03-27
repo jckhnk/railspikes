@@ -1,7 +1,9 @@
 Railspikes::Application.routes.draw do
-  root :to => 'plots#get'
+  root :to => 'home_page#get'
 
-  map_restfully :plot
+  map_restfully :koi
+
+  map_restfully :kob
 
   map_restfully :download
 

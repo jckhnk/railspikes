@@ -1,13 +1,16 @@
+.span12
+  %h2
+    = @title
 .plot
   .span12
     #flot
 
 .form
   .span12
-    = form_tag plot_path, :method => :post do
+    = form_tag @plot_route, :method => :post do
       .row
         .span12
-          = "Columns: " + Test2SpikesKoi.column_names.join(", ")
+          = "Columns: " + @model_name.column_names.join(", ")
       %br
       .row
         .span3
@@ -17,11 +20,11 @@
         .span2
           %label
             x axis
-          = select_tag :x, options_for_select(Test2SpikesKoi.column_names, params[:x]), :include_blank => true, :class => "span2"
+          = select_tag :x, options_for_select(@model_name.column_names, params[:x]), :include_blank => true, :class => "span2"
         .span2
           %label
             y axis
-          = select_tag :y, options_for_select(Test2SpikesKoi.column_names, params[:y]), :include_blank => true, :class => "span2"
+          = select_tag :y, options_for_select(@model_name.column_names, params[:y]), :include_blank => true, :class => "span2"
         .span5
           %label
             &nbsp;
