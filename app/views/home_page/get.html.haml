@@ -1,5 +1,37 @@
-.span12
-	%h2
-		= link_to "KOIs", kois_path
-	%h2
-		= link_to "KOBs", kobs_path
+.span6
+  %h2
+    KOI
+  %p
+    = image_tag "rails.png", :class => "left"
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  %ul
+    %li
+      List of stuff 1
+    %li
+      List of stuff 2
+    %li
+      List of stuff 3
+  %p
+    = link_to kois_path, :class => "btn btn-large btn-inverse" do
+      Query & Plot KOI Data
+      %i.icon.icon-arrow-right
+
+
+.span6
+  %h2
+    KOB
+  %p
+    = image_tag "rails.png", :class => "left"
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  %ul
+    %li
+      List of stuff 1
+    %li
+      List of stuff 2
+    %li
+      List of stuff 3
+  %p
+    = link_to kobs_path, :class => "btn btn-large btn-inverse" do
+      Query & Plot KOB Data
+      %i.icon.icon-arrow-right
+    
