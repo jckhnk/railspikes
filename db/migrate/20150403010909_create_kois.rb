@@ -5,7 +5,7 @@ class CreateKois < ActiveRecord::Migration
       t.string   "kic_tm_designation"
 
       t.string   "kepler_name"
-      t.boolean  "confirmed"
+      t.integer  "confirmed"
       t.float    "kic_ra"
       t.float    "kic_dec"
 

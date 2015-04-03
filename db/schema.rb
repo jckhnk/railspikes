@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20150403010917) do
     t.integer  "kic_kepler_id"
     t.string   "kic_tm_designation"
     t.string   "kepler_name"
-    t.boolean  "confirmed"
+    t.integer  "confirmed"
     t.float    "kic_ra"
     t.float    "kic_dec"
     t.float    "i1_mag"
