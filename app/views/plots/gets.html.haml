@@ -7,7 +7,7 @@
 
 .form
   .span12
-    = form_tag Rails.application.routes.url_helpers.send(@plot_route), :method => :post do
+    = form_tag @plot_route, :method => :post do
       .row
         .span12
           = "Columns: " + @model_name.plot_column_names.join(", ")
