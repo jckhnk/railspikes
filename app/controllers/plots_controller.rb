@@ -11,7 +11,7 @@ class PlotsController < ApplicationController
 		# raise(params.inspect)
 		x = params[:x]
 		y = params[:y]
-		unless @model_name.column_names.include?(x) && @model_name.column_names.include?(y)
+		unless @model_name.safe_column_names.include?(x) && @model_name.safe_column_names.include?(y)
 			raise "params not allowed".inspect
 		end
 		# raise (@model_name.csv_column_names + [x, y]).join(',').inspect
@@ -50,7 +50,7 @@ class PlotsController < ApplicationController
 
 		if params[:button] == 'download_all'
 			csv = CSV.generate do |csv|
-				csv << (@model_name.column_names)
+				csv << (@model_name.safe_column_names)
 				@result.each do |r|
 					csv << r.to_csv
 				end
