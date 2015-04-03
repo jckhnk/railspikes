@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150312062959) do
+ActiveRecord::Schema.define(:version => 20150403010430) do
 
   create_table "kics", :force => true do |t|
     t.float   "kic_ra"
@@ -438,6 +438,8 @@ ActiveRecord::Schema.define(:version => 20150312062959) do
     t.float    "ji2color"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.boolean  "confirmed"
+    t.string   "kepler_name"
   end
 
   create_table "test_kois", :force => true do |t|

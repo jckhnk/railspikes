@@ -9,7 +9,8 @@ module Plot
   #
   module ClassMethods
     def safe_column_names
-    	self.column_names - ["id", "created_at", "updated_at"]
+    	fields = self.column_names - ["id", "created_at", "updated_at"]
+      return [fields[15]] + fields[0..14] + fields[16..-1]
     end
   end
 
@@ -25,7 +26,7 @@ module Plot
   end
 
   def to_csv
-  	return self.column_names.map{|c| self.send(c)}
+  	return self.safe_column_names.map{|c| self.send(c)}
   end
 
   def build_plot_data(x, y)
@@ -33,7 +34,7 @@ module Plot
     hash_data = {}
     data << self.send(x)
     data << self.send(y)
-    self.class.column_names.each do |c|
+    self.class.safe_column_names.each do |c|
       hash_data[c] = self.send(c)
     end
     data << hash_data
