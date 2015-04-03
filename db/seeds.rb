@@ -56,3 +56,31 @@ puts "Generating 50 fake Kic records"
   puts record.to_json
   puts "---------"
 end
+
+puts "Generating 50 fake Koi records"
+50.times do |i|
+  multi = (1..100).to_a.shuffle.shuffle.shuffle.first
+  attrs = {}
+  
+  Koi.safe_column_names.each do |n|
+    attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
+  end
+
+  record = Koi.create(attrs)
+  puts record.to_json
+  puts "---------"
+end
+
+puts "Generating 50 fake Koi records"
+50.times do |i|
+  multi = (1..100).to_a.shuffle.shuffle.shuffle.first
+  attrs = {}
+  
+  Kob.safe_column_names.each do |n|
+    attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
+  end
+
+  record = Kob.create(attrs)
+  puts record.to_json
+  puts "---------"
+end

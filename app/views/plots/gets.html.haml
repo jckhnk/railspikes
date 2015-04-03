@@ -10,7 +10,7 @@
     = form_tag @plot_route, :method => :post do
       .row
         .span12
-          = "Columns: " + @model_name.safe_column_names.join(", ")
+          = "Columns: " + @model_name.plot_column_names.join(", ")
       %br
       .row
         .span3
@@ -20,11 +20,11 @@
         .span2
           %label
             x axis
-          = select_tag :x, options_for_select(@model_name.safe_column_names, params[:x]), :include_blank => true, :class => "span2"
+          = select_tag :x, options_for_select(@model_name.plot_column_names, params[:x]), :include_blank => true, :class => "span2"
         .span2
           %label
             y axis
-          = select_tag :y, options_for_select(@model_name.safe_column_names, params[:y]), :include_blank => true, :class => "span2"
+          = select_tag :y, options_for_select(@model_name.plot_column_names, params[:y]), :include_blank => true, :class => "span2"
         .span5
           %label
             &nbsp;
