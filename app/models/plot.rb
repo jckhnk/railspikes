@@ -1,11 +1,21 @@
 module Plot
 
-  def self.column_names
-  	fields = self.columns.map{|c| c.name}
-  	newfields = fields - ["id", "created_at", "updated_at"]
-    return [newfields[15]]+newfields[0..14]+newfields[16..-1]
+  def self.included(klass)
+    klass.extend ClassMethods
   end
 
+  #
+  # Class Methods.
+  #
+  module ClassMethods
+    def safe_column_names
+    	self.column_names - ["id", "created_at", "updated_at"]
+    end
+  end
+
+  #
+  # Instance Methods.
+  #
   def self.csv_column_names
   	return ["kic_tmid"]
   end
@@ -31,3 +41,4 @@ module Plot
   end
 
 end
+
