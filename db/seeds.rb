@@ -62,7 +62,7 @@ puts "Generating 50 fake Koi records"
   multi = (1..100).to_a.shuffle.shuffle.shuffle.first
   attrs = {}
   
-  Koi.safe_column_names.each do |n|
+  Koi.plot_column_names.each do |n|
     attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
   end
 
@@ -76,7 +76,7 @@ puts "Generating 50 fake Koi records"
   multi = (1..100).to_a.shuffle.shuffle.shuffle.first
   attrs = {}
   
-  Kob.safe_column_names.each do |n|
+  Kob.plot_column_names.each do |n|
     attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
   end
 
