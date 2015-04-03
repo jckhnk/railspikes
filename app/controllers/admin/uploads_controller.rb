@@ -11,32 +11,42 @@
 class Admin::UploadsController < Admin::AdminController
 
 	def get
-
 	end
 
 	def post
-
-		# while Source.last != nil
-		# 	Source.last.delete
-		# end
-		# SimpleSource.destroy_all
-		Test2SpikesKoi.destroy_all
-
+  	## Upload method for KOI
 		require 'csv'
+    sources = []
+    
 		csv_text = File.read(params['myfile'].tempfile.path)
 		csv = CSV.parse(csv_text, :headers => true)
 		rows = []
 		csv.each do |row|
-		  # SimpleSource.create(row.to_hash)
-		  Test2SpikesKoi.create(row.to_hash)
-		  # rows << row.to_hash
+		  sources << Koi.new(row.to_hash)
 		end
-
-		# redirect_to admin_upload_path, :notice => "rows ingested: "+ SimpleSource.count.to_s
-		redirect_to admin_upload_path, :notice => "rows ingested: "+ Test2SpikesKoi.count.to_s
-		# redirect_to admin_upload_path, :notice => rows
-		# redirect_to admin_upload_path, :notice => Page.all
-
+		
+  	Koi.destroy_all
+  	sources.map{|s| s.save}
+  	
+		redirect_to admin_upload_path, :notice => "#{Koi.count} KOI Sources Ingested"
 	end
-
+	
+	def posts
+  	## Upload method for KOB
+		require 'csv'
+    sources = []
+    
+		csv_text = File.read(params['myfile'].tempfile.path)
+		csv = CSV.parse(csv_text, :headers => true)
+		rows = []
+		csv.each do |row|
+		  sources << Kob.new(row.to_hash)
+		end
+		
+  	Kob.destroy_all
+  	sources.map{|s| s.save}
+  	
+		redirect_to admin_upload_path, :notice => "#{Kob.count} KOB Sources Ingested"
+	end
+	
 end

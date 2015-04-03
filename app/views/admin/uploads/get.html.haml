@@ -1,9 +1,21 @@
-= form_tag admin_upload_path, :method => :post, :multipart => true do 
-	%label
-		test
-	= file_field_tag :myfile
-	
-	%br
+.span4
+  = form_tag admin_upload_path, :method => :post, :multipart => true do 
+    %label
+      Upload KOI CSV File
+    = file_field_tag :myfile
+    
+    %br
+  
+    %button.btn.btn-primary{:type => "submit"}
+      Upload
 
-	%button.btn.btn-primary{:type => "submit"}
-		submit
+.span4
+  = form_tag admin_uploads_path, :method => :posts, :multipart => true do 
+    %label
+      Upload KOB CSV File
+    = file_field_tag :myfile
+    
+    %br
+  
+    %button.btn.btn-primary{:type => "submit"}
+      Upload
