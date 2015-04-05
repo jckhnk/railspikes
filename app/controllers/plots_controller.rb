@@ -2,7 +2,7 @@ class PlotsController < ApplicationController
 
 	def gets
 
-		@data = [[1,1], [2,2]]
+		@data = [[0], [0]]
 
 	end
 
