@@ -1,14 +1,14 @@
-.span12
-  %h2
+= content_for :section_title do
+  .section_title
     = @title
 
-.plot
-  .span12
-    #flot
-
-.fields_reference
-  .span12
-    = "Columns: " + @model_name.plot_column_names.join(", ")
+.column_names
+  %dl
+    %dt
+      Column Names
+    - @model_name.plot_column_names.each do |name|
+      %dd
+        = name
 
 .form
   .span12
@@ -45,11 +45,17 @@
             Sample Size
           = text_field_tag :sample_size, params[:sample_size]
 
-%hr
-.span12
-  %p
-    Click a data point to see all fields
+.plot
+  .span12
+    #flot
+
+
 #click_data
+  .span12
+    %p.click_data
+      %em
+        Click a data point to see all fields
+
   
 
 :javascript

@@ -66,3 +66,42 @@ body, h1, h2, h3, h4, h5, h6, p {
     @include border-radius(0 0 6px 6px)
   }
 }
+
+.column_names {
+  position: relative;
+  dl {
+    margin-top: 0;
+    position: absolute;
+    left: -150px;
+    width: 150px;
+    text-align: right;
+    dd {
+      display: inline-block;
+      background-color: #eee;
+      padding: 0px 3px;
+      @include border-radius(3px);
+      margin: 3px;
+    }
+  }
+}
+
+.click_data {
+  background-color: #eee;
+  @include border-radius(3px);
+  padding: 10px 0;
+  text-align: center;
+}
+
+.section_title {
+  color: #fff;
+  font-size: 34px;
+  line-height: 67px;
+  text-align: right;
+  font-weight: 300;
+}
+
+#flot {
+  background-color: #eee;
+  @include border-radius(3px); 
+  margin-bottom: 10px;
+}

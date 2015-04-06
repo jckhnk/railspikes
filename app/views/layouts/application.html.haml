@@ -13,13 +13,18 @@
   .header
     .container
       .row
-        .span12
+        .span8
           .site_title
             = link_to root_path do
               %h1
                 SpiKeS
                 %span
                   Spitzer Kepler Survey
+        .span4
+          - if content_for? :section_title
+            = yield :section_title
+            
+          
     .clear
     
   .content
