@@ -1,17 +1,18 @@
 .span12
   %h2
     = @title
+
 .plot
   .span12
     #flot
 
+.fields_reference
+  .span12
+    = "Columns: " + @model_name.plot_column_names.join(", ")
+
 .form
   .span12
     = form_tag @plot_route, :method => :post do
-      .row
-        .span12
-          = "Columns: " + @model_name.plot_column_names.join(", ")
-      %br
       .row
         .span3
           %label
@@ -19,29 +20,29 @@
           = text_field_tag :sql_query, params[:sql_query], :class => "span3"
         .span2
           %label
-            x axis
+            X Axis
           = select_tag :x, options_for_select(@model_name.plot_column_names, params[:x]), :include_blank => true, :class => "span2"
         .span2
           %label
-            y axis
+            Y Axis
           = select_tag :y, options_for_select(@model_name.plot_column_names, params[:y]), :include_blank => true, :class => "span2"
         .span5
           %label
             &nbsp;
           %button.btn.btn-primary{:type => "submit", :name => "button", :value => "plot"}
-            plot x and y
+            Plot X & Y
           %button.btn.btn-info{:type => "submit", :name => "button", :value => "download_xy"}
-            download x and y
+            Download X & Y
           %button.btn.btn-inverse{:type => "submit", :name => "button", :value => "download_all"}
-            download all        
+            Download All        
       .row
         .span1
           %label
-            random
+            Random
           = check_box_tag :sample, params[:sample], params[:sample].present?
         .span2
           %label
-            sample size
+            Sample Size
           = text_field_tag :sample_size, params[:sample_size]
 
 %hr
