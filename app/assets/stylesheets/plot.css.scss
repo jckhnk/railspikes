@@ -21,10 +21,6 @@
   clear: both;
 }
 
-img {
-  margin: 10px;
-}
-
 .site_title {
   font-size: 62px;
   margin: 10px 0 0 0;
@@ -33,4 +29,23 @@ img {
 
 .footer {
   margin-top: 30px;
+}
+
+.card {
+  position: relative;
+  border: 1px solid #ccc;
+  @include border-radius(6px);
+  h2 {
+    position: absolute;
+    margin-left: 20px;
+  }
+  a {
+    display: block;
+  } 
+  img {
+    margin-top: 5px;
+  }
+  .btn-large {
+    @include border-radius(0 0 6px 6px)
+  }
 }

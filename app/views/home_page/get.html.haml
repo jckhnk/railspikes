@@ -4,21 +4,21 @@
     to the new Spitzer measurements along with all the data from the KIC, as well as UKIRT J, for both the KOIs (Kepler Objects of Interest) and KOBs (Kepler OBjects).
 
 .span6
-  %h2
-    KOIs
-  %p
-    = image_tag "KOIs.png", :class => "left"
-  %p
+  .card.koi
+    %h2
+      KOIs
+    = image_tag "KOIs_tn.jpg", :class => "left"
+    .clear
     = link_to kois_path, :class => "btn btn-large btn-inverse" do
       Query & Plot KOI Data
       %i.icon.icon-arrow-right
 
 .span6
-  %h2
-    KOBs
-  %p
-    = image_tag "KOBs.png", :class => "left"
-  %p
+  .card.kob
+    %h2
+      KOBs
+    = image_tag "KOBs_tn.jpg", :class => "left"
+    .clear
     = link_to kobs_path, :class => "btn btn-large btn-inverse" do
       Query & Plot KOB Data
       %i.icon.icon-arrow-right
