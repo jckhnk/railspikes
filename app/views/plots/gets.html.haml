@@ -64,6 +64,7 @@
 
   var plot = $.plot($("#flot"), [data], {
     series: {
+        color: '#3366cc',
         lines: { show: false },
         points: { show: true, fill: 1, fillColor: false }
     },
@@ -124,7 +125,7 @@
         html += json[i]
         html += '</a>'
       } else if (i == 'ukirt_j') {
-        html += '<a href="ukirt_j__kic_kepler_id_'
+        html += '<a href="../thumbnails/ukirt_j__kic_kepler_id_'
         html += kic_kepler_id
         html += '.png'
         html += '" target="_blank">'
