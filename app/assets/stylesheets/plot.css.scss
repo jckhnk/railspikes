@@ -57,13 +57,18 @@ body, h1, h2, h3, h4, h5, h6, p {
     margin-left: 20px;
   }
   a {
-    display: block;
+    width: 189px;
   } 
   img {
     margin-top: 5px;
   }
   .btn-large {
-    @include border-radius(0 0 6px 6px)
+    &.left {
+      @include border-radius(0 0 0 6px)
+    }
+    &.right {
+      @include border-radius(0 0 6px 0)
+    }    
   }
 }
 

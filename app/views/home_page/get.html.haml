@@ -9,9 +9,12 @@
       KOIs
     = image_tag "KOIs_tn.jpg", :class => "left"
     .clear
-    = link_to kois_path, :class => "btn btn-large btn-inverse" do
-      Query & Plot KOI Data
+    = link_to kois_path, :class => "btn btn-large btn-inverse left" do
+      Query & Plot
       %i.icon.icon-arrow-right
+    = link_to download_koi_path, :class => "btn btn-large btn-info right" do
+      Download All
+      %i.icon.icon-download-alt
 
 .span6
   .card.kob
@@ -19,6 +22,9 @@
       KOBs
     = image_tag "KOBs_tn.jpg", :class => "left"
     .clear
-    = link_to kobs_path, :class => "btn btn-large btn-inverse" do
-      Query & Plot KOB Data
+    = link_to kobs_path, :class => "btn btn-large btn-inverse left" do
+      Query & Plot
       %i.icon.icon-arrow-right
+    = link_to download_kob_path, :class => "btn btn-large btn-info right" do
+      Download All
+      %i.icon.icon-download-alt

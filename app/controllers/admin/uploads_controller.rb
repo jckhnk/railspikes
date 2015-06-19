@@ -25,7 +25,7 @@ class Admin::UploadsController < Admin::AdminController
 		  sources << Koi.new(row.to_hash)
 		end
 		
-  	Koi.destroy_all
+  	Koi.delete_all
   	sources.map{|s| s.save}
   	
 		redirect_to admin_upload_path, :notice => "#{Koi.count} KOI Sources Ingested"
@@ -43,7 +43,7 @@ class Admin::UploadsController < Admin::AdminController
 		  sources << Kob.new(row.to_hash)
 		end
 		
-  	Kob.destroy_all
+  	Kob.delete_all
   	sources.map{|s| s.save}
   	
 		redirect_to admin_upload_path, :notice => "#{Kob.count} KOB Sources Ingested"

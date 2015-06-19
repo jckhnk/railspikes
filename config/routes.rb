@@ -5,7 +5,10 @@ Railspikes::Application.routes.draw do
 
   map_restfully :kob
 
-  map_restfully :download
+	namespace :download do
+	  map_restfully :kob
+	  map_restfully :koi
+	end
 
 	namespace :admin do
 		root :to => "uploads#get"
