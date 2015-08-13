@@ -11,3 +11,4 @@ public/system
 *.swo
 Gemfile.lock
 public/*.png
+public/cutouts
