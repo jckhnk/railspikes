@@ -110,3 +110,14 @@ body, h1, h2, h3, h4, h5, h6, p {
   @include border-radius(3px); 
   margin-bottom: 10px;
 }
+
+.column_data {
+  min-height: 45px;
+}
+
+.plot_image {
+  text-align: center;
+  .caption {
+    font-weight: 700;
+  }
+}

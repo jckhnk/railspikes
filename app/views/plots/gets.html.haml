@@ -82,56 +82,9 @@
 
   $("#flot").bind("plotclick", function (event, pos, item) {
     if (item) {
-      formatData(item.series.data[item.dataIndex][2]);
+      data = item.series.data[item.dataIndex][2];
+      console.log(data);
+      html = HandlebarsTemplates['source_column'](data);
+      $("#click_data").html(html);
     }
   });
-
-  function formatData(data) {
-
-    var json = data;
-    var html = ''
-
-    for (var i in json) {
-      if (i == 'kic_ra') {
-        var ra = json[i];
-      }
-      if (i == 'kic_dec') {
-        var dec = json[i];
-      }
-      if (i == 'kic_kepler_id') {
-        var kic_kepler_id = json[i];
-      }
-    }
-    for (var i in json) {
-      html += '<div class="span2">'
-      html += '<dl>'
-      html += '<dt>'
-      html += i
-      html += '</dt>'
-      html += '<dd>'
-      if (i == 'kic_kepler_id') {
-        html += '<a href="http://archive.stsci.edu//kepler/data_search/search.php?action=Search&ktc_kepler_id='
-        html += kic_kepler_id
-        html += '" target="_blank">'
-        html += json[i]
-        html += '</a>'
-      } else if (i == 'kic_tm_designation') {
-        html += '<a href="http://irsa.ipac.caltech.edu/cgi-bin/FinderChart/nph-finder?locstr='
-        html += ra
-        html += '+'
-        html += dec
-        html += '&subsetsize=3.0'
-        html += '" target="_blank">'
-        html += json[i]
-        html += '</a>'
-      } else {
-        html += json[i]
-      }
-      html += '</dd>'
-      html += '</dl>'
-      html += '</div>'
-    }
-
-    $("#click_data").html(html);
-
-  }

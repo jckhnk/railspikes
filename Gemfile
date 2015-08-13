@@ -17,6 +17,7 @@ gem 'twitter-bootstrap-rails', '2.1.9'
 gem 'therubyracer', '0.12.1'
 gem 'less-rails', '2.3.3'
 gem 'less', '2.3.3'
+gem 'handlebars_assets', '0.20.2'
 
 group :development do
   gem 'debugger', '1.6.8'
