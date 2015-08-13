@@ -10,5 +10,5 @@ public/system
 *.swp
 *.swo
 Gemfile.lock
-public/*.png
+public/thumbnails
 public/cutouts
