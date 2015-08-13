@@ -59,8 +59,7 @@ module Plot
 
   def ukirt_image_url
     filename = "ukirt_j__kic_kepler_id_" + self.kic_kepler_id.to_s + ".png"
-    path = ["/thumnbails", filename].join("/")
+    path = ["/thumbnails", filename].join("/")
     return path
   end
 end
-
