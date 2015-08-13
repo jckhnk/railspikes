@@ -7,18 +7,4 @@ class Koi < ActiveRecord::Base
                   :kic_cq, :kic_pq, :kic_aq, :kic_catkey, :kic_scpkey, :kic_parallax, :kic_glon, :kic_glat, :kic_pmtotal,
                   :kic_grcolor, :kic_jkcolor, :kic_gkcolor, :kic_degree_ra, :kic_fov_flag, :kic_pmra, :kic_pmdec
   include Plot
-
-  def spz_image_url(ch)
-    folder = self.kic_kepler_id.to_s.rjust(8, '0')[0..3]
-    filename = self.kic_kepler_id.to_s + "_ch#{ch}.png"
-    path = ["/cutouts", folder, filename].join("/")
-    return path
-  end
-
-  def ukirt_image_url
-    filename = "ukirt_j__kic_kepler_id_" + self.kic_kepler_id.to_s + ".png"
-    path = ["/thumnbails", filename].join("/")
-    return path
-  end
-
 end
