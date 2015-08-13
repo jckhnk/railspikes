@@ -34,7 +34,7 @@
           %button.btn.btn-info{:type => "submit", :name => "button", :value => "download_xy"}
             Download X & Y
           %button.btn.btn-inverse{:type => "submit", :name => "button", :value => "download_all"}
-            Download All        
+            Download All
       .row
         .span1
           %label
@@ -56,7 +56,7 @@
       %em
         Click a data point to see all fields
 
-  
+
 
 :javascript
 
@@ -86,11 +86,11 @@
     }
   });
 
-  function formatData(data) { 
+  function formatData(data) {
 
     var json = data;
     var html = ''
-    
+
     for (var i in json) {
       if (i == 'kic_ra') {
         var ra = json[i];
@@ -121,13 +121,6 @@
         html += '+'
         html += dec
         html += '&subsetsize=3.0'
-        html += '" target="_blank">'
-        html += json[i]
-        html += '</a>'
-      } else if (i == 'ukirt_j') {
-        html += '<a href="thumbnails/ukirt_j__kic_kepler_id_'
-        html += kic_kepler_id
-        html += '.png'
         html += '" target="_blank">'
         html += json[i]
         html += '</a>'
