@@ -6,6 +6,22 @@
 .span6
   .card.koi
     %h2
+      Kepler Stellar Catalog
+    = image_tag "KOBs_tn.jpg", :class => "left"
+    .clear
+    = link_to kepler_targets_path, :class => "btn btn-large btn-inverse left" do
+      Query & Plot
+      %i.icon.icon-arrow-right
+    = link_to download_kepler_target_path, :class => "btn btn-large btn-info right" do
+      Download All
+      %i.icon.icon-download-alt
+
+.clearfix
+%br
+
+.span6
+  .card.koi
+    %h2
       KOIs
     = image_tag "KOIs_tn.jpg", :class => "left"
     .clear

@@ -1,0 +1,20 @@
+.span4.plot_image
+  %img{:src => "{{spz_ch1_image_url}}"}
+  .caption
+    I1
+.span4.plot_image
+  %img{:src => "{{spz_ch2_image_url}}"}
+  .caption
+    I2
+.span4.plot_image
+  %img{:src => "{{ukirt_image_url}}"}
+  .caption
+    UKIRT J
+.clear
+- Kob.plot_column_names.each do |name|
+  .span2
+    %dl.column_data
+      %dt
+        = name
+      %dd
+        = "{{#{name}}}"

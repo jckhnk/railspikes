@@ -84,7 +84,7 @@
     if (item) {
       data = item.series.data[item.dataIndex][2];
       console.log(data);
-      html = HandlebarsTemplates['source_column'](data);
+      html = HandlebarsTemplates["#{controller_name.singularize + '_source_column'}"](data);
       $("#click_data").html(html);
     }
   });

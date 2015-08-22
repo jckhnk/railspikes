@@ -10,8 +10,8 @@
   %img{:src => "{{ukirt_image_url}}"}
   .caption
     UKIRT J
-.clear  
-- Kob.plot_column_names.each do |name|
+.clear
+- KeplerTarget.plot_column_names.each do |name|
   .span2
     %dl.column_data
       %dt

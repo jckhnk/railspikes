@@ -17,36 +17,51 @@ class Admin::UploadsController < Admin::AdminController
   	## Upload method for KOI
 		require 'csv'
     sources = []
-    
+
 		csv_text = File.read(params['myfile'].tempfile.path)
 		csv = CSV.parse(csv_text, :headers => true)
-		rows = []
 		csv.each do |row|
 		  sources << Koi.new(row.to_hash)
 		end
-		
+
   	Koi.delete_all
   	sources.map{|s| s.save}
-  	
+
 		redirect_to admin_upload_path, :notice => "#{Koi.count} KOI Sources Ingested"
 	end
-	
+
 	def posts
   	## Upload method for KOB
 		require 'csv'
     sources = []
-    
+
 		csv_text = File.read(params['myfile'].tempfile.path)
 		csv = CSV.parse(csv_text, :headers => true)
-		rows = []
 		csv.each do |row|
 		  sources << Kob.new(row.to_hash)
 		end
-		
+
   	Kob.delete_all
   	sources.map{|s| s.save}
-  	
+
 		redirect_to admin_upload_path, :notice => "#{Kob.count} KOB Sources Ingested"
 	end
-	
+
+	def puts
+  	## Upload method for KOB
+		require 'csv'
+    sources = []
+
+		csv_text = File.read(params['myfile'].tempfile.path)
+		csv = CSV.parse(csv_text, :headers => true)
+		csv.each do |row|
+		  sources << KeplerTarget.new(row.to_hash)
+		end
+
+  	KeplerTarget.delete_all
+  	sources.map{|s| s.save}
+
+		redirect_to admin_upload_path, :notice => "#{KeplerTarget.count} Kepler Targets Ingested"
+	end
+
 end

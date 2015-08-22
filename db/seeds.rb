@@ -34,7 +34,7 @@ puts "Generating 50 fake Source records"
     :i1        => (multi * i.to_f / [2, 3, 4].shuffle.first),
     :i2        => (multi * i.to_f / [2, 3, 4].shuffle.first)
   })
-  
+
   puts record.to_json
   puts "---------"
 end
@@ -47,7 +47,7 @@ puts "Generating 50 fake Kic records"
 50.times do |i|
   multi = (1..100).to_a.shuffle.shuffle.shuffle.first
   attrs = {}
-  
+
   Kic.column_names.each do |n|
     attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
   end
@@ -61,7 +61,7 @@ puts "Generating 50 fake Koi records"
 50.times do |i|
   multi = (1..100).to_a.shuffle.shuffle.shuffle.first
   attrs = {}
-  
+
   Koi.plot_column_names.each do |n|
     attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
   end
@@ -71,16 +71,30 @@ puts "Generating 50 fake Koi records"
   puts "---------"
 end
 
-puts "Generating 50 fake Koi records"
+puts "Generating 50 fake Kob records"
 50.times do |i|
   multi = (1..100).to_a.shuffle.shuffle.shuffle.first
   attrs = {}
-  
+
   Kob.plot_column_names.each do |n|
     attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
   end
 
   record = Kob.create(attrs)
+  puts record.to_json
+  puts "---------"
+end
+
+puts "Generating 50 fake Ksc records"
+50.times do |i|
+  multi = (1..100).to_a.shuffle.shuffle.shuffle.first
+  attrs = {}
+
+  KeplerTarget.plot_column_names.each do |n|
+    attrs[n] = (multi * i.to_f / [2, 3, 4].shuffle.first)
+  end
+
+  record = KeplerTarget.create(attrs)
   puts record.to_json
   puts "---------"
 end
