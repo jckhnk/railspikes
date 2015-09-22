@@ -1,46 +1,22 @@
-.span12
-  %p
-    %strong
-      The full Kepler field has been imaged by Spitzer at 3.6 and 4.5 microns, and the extracted photometry matched to the Kepler Input Catalog (KIC). This site provides access to the new Spitzer measurements along with all the data from the KIC, as well as UKIRT J, for both the KOIs (Kepler Objects of Interest) and KOBs (Kepler OBjects).
-
 .span6
-  .card.koi
-    %h2
-      Kepler Stellar Catalog
-    = image_tag "KOBs_tn.jpg", :class => "left"
-    .clear
-    = link_to kepler_targets_path, :class => "btn btn-large btn-inverse left" do
+  %h2
+    Kepler Stellar Catalog
+  %h3.weak
+    = number_with_delimiter KeplerTarget.count
+    Sources
+  %p
+    The full Kepler field has been imaged by Spitzer at 3.6 and 4.5 microns, and the extracted photometry matched to the Kepler Stellar Catalog (KSC). This site provides access to the new Spitzer measurements along with all the data from the KSC, as well as UKIRT J and WISE channels 1 & 2.
+
+  %p  
+    = link_to kepler_targets_path, :class => "btn btn-large btn-inverse" do
       Query & Plot
-      %i.icon.icon-arrow-right
-    = link_to download_kepler_target_path, :class => "btn btn-large btn-info right" do
+      %i.icon.icon-arrow-right  
+  %p
+    = link_to download_kepler_target_path, :class => "btn btn-large btn-info" do
       Download All
       %i.icon.icon-download-alt
+
+.span6
+  = image_tag "KOBs_tn.jpg"
 
 .clearfix
-%br
-
-.span6
-  .card.koi
-    %h2
-      KOIs
-    = image_tag "KOIs_tn.jpg", :class => "left"
-    .clear
-    = link_to kois_path, :class => "btn btn-large btn-inverse left" do
-      Query & Plot
-      %i.icon.icon-arrow-right
-    = link_to download_koi_path, :class => "btn btn-large btn-info right" do
-      Download All
-      %i.icon.icon-download-alt
-
-.span6
-  .card.kob
-    %h2
-      KOBs
-    = image_tag "KOBs_tn.jpg", :class => "left"
-    .clear
-    = link_to kobs_path, :class => "btn btn-large btn-inverse left" do
-      Query & Plot
-      %i.icon.icon-arrow-right
-    = link_to download_kob_path, :class => "btn btn-large btn-info right" do
-      Download All
-      %i.icon.icon-download-alt

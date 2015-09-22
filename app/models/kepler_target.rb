@@ -1,8 +1,8 @@
 class KeplerTarget < ActiveRecord::Base
-  attr_accessible :kepid, :tm_designation, :nkoi, :kepmag, :teff, :logg, :feh,
-    :radius, :mass, :dens, :jmag, :hmag, :kmag, :ukirtj, :i1mag, :i1unc, :i2mag,
-    :i2unc, :i1obs, :i2obs, :i1i2color, :ji2color, :w1mag, :w1unc, :w2mag, :w2unc,
-    :w1w2color
+  attr_accessible :tm_designation, :nkoi, :kepmag, :teff, :logg, :feh, :radius, :mass, :dens, :jmag, :hmag, :kmag, 
+                  :ra, :dec, :i1mag, :i1err, :i2mag, :i2err, :i1obs, :i2obs, :ukirtj, 
+                  :w1mag, :w1err, :w2mag, :w2err, :i1_i2, :ukj_i2, :j_i2, :w1_w2, :kepid
+
   include Plot
 
   def spz_image_url(ch)
