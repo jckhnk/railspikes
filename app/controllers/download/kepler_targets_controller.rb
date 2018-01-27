@@ -5,8 +5,8 @@ class Download::KeplerTargetsController < ApplicationController
 		require 'csv'
 
 		csv = CSV.generate do |csv|
-			csv << (KeplerTarget.all_column_names)
-			KeplerTarget.all.each do |r|
+			csv << (KeplerStellarCatalog.all_column_names)
+			KeplerStellarCatalog.all.each do |r|
 				csv << r.to_csv
 			end
 
