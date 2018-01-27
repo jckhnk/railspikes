@@ -10,7 +10,9 @@ class Admin::UploadsController < Admin::AdminController
 		csv_text = File.read(params['myfile'].tempfile.path)
 		csv = CSV.parse(csv_text, :headers => true)
 		csv.each do |row|
-		  sources << KeplerStellarCatalog.new(row.to_hash)
+      data = row.to_hash
+      data["kepid"] = data["kepid"].to_f.to_i
+      sources << KeplerStellarCatalog.new(data)
 		end
 
   	KeplerStellarCatalog.delete_all

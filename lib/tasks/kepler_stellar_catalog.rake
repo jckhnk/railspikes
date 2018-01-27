@@ -22,12 +22,15 @@ namespace :kepler_stellar_catalog do
     items = []
 
     CSV.foreach(file, headers: true) do |row|
-      items << KeplerStellarCatalog.new(row.to_hash)
+      data = row.to_hash
+      data["kepid"] = data["kepid"].to_f.to_i
+      items << KeplerStellarCatalog.new(data)
     end
 
     puts " Ingesting sources from file..."
     items.each do |item|
       if item.save
+        puts item.kepid
         puts "  Saved..."
       else
         puts "  Failed to save..."
