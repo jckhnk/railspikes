@@ -1,27 +1,5 @@
 .span4
-  = form_tag admin_upload_path, :method => :post, :multipart => true do
-    %label
-      Upload KOI CSV File
-    = file_field_tag :myfile
-
-    %br
-
-    %button.btn.btn-primary{:type => "submit"}
-      Upload
-
-.span4
-  = form_tag admin_uploads_path, :method => :posts, :multipart => true do
-    %label
-      Upload KOB CSV File
-    = file_field_tag :myfile
-
-    %br
-
-    %button.btn.btn-primary{:type => "submit"}
-      Upload
-
-.span4
-  = form_tag admin_uploads_path, :method => :put, :multipart => true do
+  = form_tag admin_uploads_path, :method => :post, :multipart => true do
     %label
       Upload Kepler Stellar Catalog CSV File
     = file_field_tag :myfile
