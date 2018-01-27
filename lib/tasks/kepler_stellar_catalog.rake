@@ -3,7 +3,21 @@ namespace :kepler_stellar_catalog do
   task :ingest => :environment do
     require 'csv'
 
-    file = Rails.root + "lib/data/SpiKeS-WISE-match-100-180119.csv"
+    unless ENV['SourceFile']
+      puts " Missing source file..."
+      puts " Usage: rake kepler_stellar_catalog:ingest SourceFile=/path/to/file"
+      next
+    else
+      file = Pathname.new(ENV['SourceFile'])
+    end
+
+    unless file.file? && file.exist?
+      puts " Source file does not exists..."
+      next
+    end
+
+    puts " Removing old sources..."
+    KeplerStellarCatalog.destroy_all
 
     items = []
 
@@ -11,15 +25,16 @@ namespace :kepler_stellar_catalog do
       items << KeplerStellarCatalog.new(row.to_hash)
     end
 
+    puts " Ingesting sources from file..."
     items.each do |item|
       if item.save
-        puts "Saved..."
+        puts "  Saved..."
       else
-        puts "Failed to save:"
-        puts item.inspect
+        puts "  Failed to save..."
+        puts "  #{item.inspect}"
       end
     end
 
-    puts "Complete"
+    puts "Complete #{KeplerStellarCatalog.count}/#{items.length}"
   end
 end
