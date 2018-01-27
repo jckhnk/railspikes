@@ -21,11 +21,11 @@
         .span2
           %label
             X Axis
-          = select_tag :x, options_for_select(@model_name.plot_column_names, params[:x]), :include_blank => true, :class => "span2"
+          = select_tag :x, options_for_select(@model_name.plot_column_names, params[:x]), :include_blank => true, :class => "span2", :required => true
         .span2
           %label
             Y Axis
-          = select_tag :y, options_for_select(@model_name.plot_column_names, params[:y]), :include_blank => true, :class => "span2"
+          = select_tag :y, options_for_select(@model_name.plot_column_names, params[:y]), :include_blank => true, :class => "span2", :required => true
         .span5
           %label
             &nbsp;
@@ -33,8 +33,8 @@
             Plot X & Y
           %button.btn.btn-info{:type => "submit", :name => "button", :value => "download_xy"}
             Download X & Y
-          %button.btn.btn-inverse{:type => "submit", :name => "button", :value => "download_all"}
-            Download All
+          = link_to "Download All", download_kepler_target_path, :class => "btn btn-inverse"
+
       .row
         .span1
           %label

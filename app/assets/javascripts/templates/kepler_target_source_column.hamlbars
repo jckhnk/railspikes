@@ -11,10 +11,12 @@
   .caption
     UKIRT J
 .clear
-- KeplerTarget.plot_column_names.each do |name|
-  .span2
-    %dl.column_data
-      %dt
-        = name
-      %dd
-        = "{{#{name}}}"
+- KeplerStellarCatalog.plot_column_names.each_slice(KeplerStellarCatalog.plot_column_names.length / 2) do |slice|
+  .span6.table_data
+    %table.table
+      - slice.each do |name|
+        %tr
+          %th
+            = name
+          %td
+            = "{{#{name}}}"

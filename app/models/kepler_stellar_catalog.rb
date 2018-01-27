@@ -7,4 +7,22 @@ class KeplerStellarCatalog < ActiveRecord::Base
     :e_W1mag, :e_W2mag, :e_W3mag, :e_W4mag, :e_Jmag, :e_Hmag, :e_Kmag, :cntr, :cc_flags, :ext_flg, :var_flg, :ph_qual, :r_2mass
 
   include Plot
+
+  def self.csv_column_names
+    return []
+  end
+
+  def spz_image_url(ch)
+    folder = self.kepid.to_s.rjust(8, '0')[0..3]
+    filename = self.kepid.to_s + "_ch#{ch}.png"
+    path = ["/cutouts", folder, filename].join("/")
+    return path
+  end
+
+  def ukirt_image_url
+    filename = "ukirt_j__kic_kepler_id_" + self.kepid.to_s + ".png"
+    path = ["/thumbnails", filename].join("/")
+    return path
+  end
+
 end

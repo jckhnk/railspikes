@@ -66,7 +66,7 @@ strong, .strong {
   }
   a {
     width: 189px;
-  } 
+  }
   img {
     margin-top: 5px;
   }
@@ -76,7 +76,7 @@ strong, .strong {
     }
     &.right {
       @include border-radius(0 0 6px 0)
-    }    
+    }
   }
 }
 
@@ -115,7 +115,7 @@ strong, .strong {
 
 #flot {
   background-color: #eee;
-  @include border-radius(3px); 
+  @include border-radius(3px);
   margin-bottom: 10px;
 }
 
@@ -130,5 +130,11 @@ strong, .strong {
   }
   .caption {
     font-weight: 700;
+  }
+}
+
+.table_data {
+  th {
+    text-align: right;
   }
 }
