@@ -25,6 +25,17 @@
             = yield :section_title
     .clear
 
+  .flash.container
+    - if flash[:alert]
+      .alert.alert-danger
+        = flash_message(flash[:alert])
+    - if flash[:error]
+      .alert.alert-danger
+        = flash_message(flash[:error])
+    - if flash[:notice]
+      .alert.alert-info
+        = flash_message(flash[:notice])
+
   .content
     .container
       .row
@@ -35,4 +46,4 @@
       .row
         .span12
           %p
-            = mail_to "John.Livingston@jpl.nasa.gov", "Questions/concerns? Click here to send me an email."
+            = link_to "Questions/concerns? Send the SpiKeS team a message.", messages_path

@@ -33,4 +33,3 @@ group :assets do
   gem 'flexslider', '2.2.0'
   gem 'flot-rails', '0.0.6'
 end
-
