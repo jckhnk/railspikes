@@ -5,7 +5,7 @@
     SpiKeS
   = stylesheet_link_tag    "application", :media => "all"
   %link{:href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,700', :rel => 'stylesheet', :type => 'text/css'}
-  
+
   = javascript_include_tag "application"
   = csrf_meta_tags
 
@@ -19,14 +19,14 @@
               %h1
                 SpiKeS
                 %span
-                  Spitzer Kepler Survey
+                  <strong>Spi</strong>tzer <strong>Ke</strong>pler <strong>S</strong>urvey
         .span4
           - if content_for? :section_title
             = yield :section_title
-            
-          
+
+
     .clear
-    
+
   .content
     .container
       .row

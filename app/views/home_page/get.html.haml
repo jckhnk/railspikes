@@ -1,22 +1,21 @@
-.span6
-  %h2
-    Kepler Stellar Catalog
-  %h3.weak
-    = number_with_delimiter KeplerStellarCatalog.count
-    Sources
-  %p
-    The full Kepler field has been imaged by Spitzer at 3.6 and 4.5 microns, and the extracted photometry matched to the Kepler Stellar Catalog (KSC). This site provides access to the new Spitzer measurements along with all the data from the KSC, as well as UKIRT J and WISE channels 1 & 2.
+.homepage
+  .span6
+    %h2.weak
+      = number_with_delimiter KeplerStellarCatalog.count
+      Sources
+    %p
+      The full Kepler Prime field has been imaged by Spitzer at 3.6 and 4.5 microns, and the extracted photometry matched to the stars monitored by Kepler.
+      This site provides access to the new Spitzer measurements along with associated Kepler, 2mass and WISE data.
+    %p
+      .btn-group
+        = link_to kepler_targets_path, :class => "btn btn-large btn-inverse" do
+          Query & Plot
+          %i.icon.icon-search
+        = link_to download_kepler_target_path, :class => "btn btn-large btn-info" do
+          Download All
+          %i.icon.icon-download-alt
 
-  %p
-    = link_to kepler_targets_path, :class => "btn btn-large btn-inverse" do
-      Query & Plot
-      %i.icon.icon-arrow-right
-  %p
-    = link_to download_kepler_target_path, :class => "btn btn-large btn-info" do
-      Download All
-      %i.icon.icon-download-alt
-
-.span6
-  = image_tag "KOBs_tn.jpg"
+  .span6
+    = image_tag "KOBs_tn.jpg"
 
 .clearfix

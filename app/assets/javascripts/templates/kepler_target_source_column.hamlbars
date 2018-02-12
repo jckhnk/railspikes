@@ -1,15 +1,11 @@
-.span4.plot_image
+.span6.plot_image
   %img{:src => "{{spz_ch1_image_url}}"}
   .caption
     I1
-.span4.plot_image
+.span6.plot_image
   %img{:src => "{{spz_ch2_image_url}}"}
   .caption
     I2
-.span4.plot_image
-  %img{:src => "{{ukirt_image_url}}"}
-  .caption
-    UKIRT J
 .clear
 - KeplerStellarCatalog.plot_column_names.each_slice(KeplerStellarCatalog.plot_column_names.length / 2) do |slice|
   .span6.table_data
