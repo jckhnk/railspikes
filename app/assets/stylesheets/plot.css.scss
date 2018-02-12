@@ -46,17 +46,25 @@ strong, .strong {
       h1 {
         color: #fff;
         font-size: 42px;
-        line-height: 44px;
-        span {
+        line-height: 68px;
+        margin: 0;
+        weak {
           margin-left: 20px;
           font-size: 32px;
           color: #888;
         }
-        strong {
+        span {
           color: #bbb;
         }
       }
     }
+  }
+  .section_title {
+    color: #fff;
+    font-size: 32px;
+    line-height: 72px;
+    text-align: right;
+    font-weight: 300;
   }
 }
 
@@ -111,14 +119,6 @@ strong, .strong {
   @include border-radius(3px);
   padding: 10px 0;
   text-align: center;
-}
-
-.section_title {
-  color: #fff;
-  font-size: 34px;
-  line-height: 67px;
-  text-align: right;
-  font-weight: 300;
 }
 
 #flot {

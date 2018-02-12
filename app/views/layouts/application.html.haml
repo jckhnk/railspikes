@@ -18,13 +18,11 @@
             = link_to root_path do
               %h1
                 SpiKeS
-                %span
-                  <strong>Spi</strong>tzer <strong>Ke</strong>pler <strong>S</strong>urvey
+                %weak
+                  <span>Spi</span>tzer <span>Ke</span>pler <span>S</span>urvey
         .span4
           - if content_for? :section_title
             = yield :section_title
-
-
     .clear
 
   .content
