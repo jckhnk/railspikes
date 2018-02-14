@@ -20,21 +20,19 @@ class PlotsController < ApplicationController
 		else
 			sql_query = "(#{params['sql_query']}) AND (#{x} is not NULL) AND (#{y} is not NULL)"
 		end
-		sample = params[:sample]
+
 		sample_size = params[:sample_size].to_i
 
 		# sql_query_clean = ActiveRecord::Base::sanitize(sql_query)
 		# raise [sql_query, sql_query_clean].inspect
 		# raise sql_query_clean.inspect
-		if sample == "on"
+		if sample_size > 0
 			@result = @model_name.where(sql_query).order("random()").limit(sample_size)
 		else
 			@result = @model_name.where(sql_query)
 		end
-		# @data = @result.pluck(x).zip(@result.pluck(y))
+
 		@data = @result.map{|s| s.build_plot_data(x, y)}
-		# @x = x
-		# @y = y
 
 		require 'csv'
 

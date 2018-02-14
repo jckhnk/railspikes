@@ -48,7 +48,7 @@ module Plot
 
     data << hash_data
     return data
-  end
+  end 
 
   def spz_image_url(ch)
     folder = self.kic_kepler_id.to_s.rjust(8, '0')[0..3]

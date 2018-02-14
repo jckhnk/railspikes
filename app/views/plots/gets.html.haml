@@ -36,14 +36,10 @@
           = link_to "Download All", download_kepler_target_path, :class => "btn btn-inverse"
 
       .row
-        .span1
-          %label
-            Random
-          = check_box_tag :sample, params[:sample], params[:sample].present?
         .span2
           %label
-            Sample Size
-          = text_field_tag :sample_size, params[:sample_size]
+            Random Sample Size
+          = text_field_tag :sample_size, params[:sample_size], :placeholder => 100
 
 .plot
   .span12
