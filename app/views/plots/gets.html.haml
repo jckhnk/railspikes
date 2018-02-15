@@ -14,32 +14,30 @@
   .span12
     = form_tag @plot_route, :method => :post do
       .row
-        .span3
-          %label
-            SQL (e.g. i1i2color > 0.1)
-          = text_field_tag :sql_query, params[:sql_query], :class => "span3"
         .span2
           %label
-            X Axis
+            SQL (Optional)
+          = text_field_tag :sql_query, params[:sql_query], :class => "span2", :placeholder => "W1mag < 5"
+        .span3
+          %label
+            Random Sample Size (2500 max)
+          = text_field_tag :sample_size, params[:sample_size], :class => "span3", :placeholder => 2500
+        .span2
+          %label
+            X Axis (Required)
           = select_tag :x, options_for_select(@model_name.plot_column_names, params[:x]), :include_blank => true, :class => "span2", :required => true
         .span2
           %label
-            Y Axis
+            Y Axis (Required)
           = select_tag :y, options_for_select(@model_name.plot_column_names, params[:y]), :include_blank => true, :class => "span2", :required => true
-        .span5
+        .span3
           %label
             &nbsp;
           %button.btn.btn-primary{:type => "submit", :name => "button", :value => "plot"}
             Plot X & Y
-          %button.btn.btn-info{:type => "submit", :name => "button", :value => "download_xy"}
-            Download X & Y
           = link_to "Download All", download_kepler_target_path, :class => "btn btn-inverse"
 
       .row
-        .span2
-          %label
-            Random Sample Size (2500 max)
-          = text_field_tag :sample_size, params[:sample_size], :placeholder => 2500
 
 .plot
   .span12
