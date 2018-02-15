@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180212193429) do
+ActiveRecord::Schema.define(:version => 20180126234017) do
 
   create_table "kepler_stellar_catalogs", :force => true do |t|
     t.integer  "kepid"
@@ -77,12 +77,11 @@ ActiveRecord::Schema.define(:version => 20180212193429) do
     t.float    "W2-I2_mag"
     t.float    "Kmag-I1_mag"
     t.float    "Kmag-I2_mag"
+    t.float    "I1_mag-I2_mag"
     t.float    "e_W1mag"
     t.float    "e_W2mag"
     t.float    "e_W3mag"
     t.float    "e_W4mag"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
     t.string   "AllWISE"
     t.float    "RAJ2000"
     t.float    "DEJ2000"
@@ -100,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20180212193429) do
     t.integer  "e_pmDE"
     t.float    "d2M"
     t.float    "angDist"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "kepler_targets", :force => true do |t|

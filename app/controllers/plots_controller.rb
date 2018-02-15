@@ -1,20 +1,16 @@
 class PlotsController < ApplicationController
 
 	def gets
-
 		@data = [[0], [0]]
-
 	end
 
 	def posts
-
-		# raise(params.inspect)
 		x = params[:x]
 		y = params[:y]
 		unless @model_name.plot_column_names.include?(x) && @model_name.plot_column_names.include?(y)
 			raise "params not allowed".inspect
 		end
-		# raise (@model_name.csv_column_names + [x, y]).join(',').inspect
+
 		if params[:sql_query].blank?
 			sql_query = "(#{x} is not NULL) AND (#{y} is not NULL)"
 		else
@@ -22,15 +18,9 @@ class PlotsController < ApplicationController
 		end
 
 		sample_size = params[:sample_size].to_i
+		sample_size = 2500 if sample_size > 2500 || sample_size == 0
 
-		# sql_query_clean = ActiveRecord::Base::sanitize(sql_query)
-		# raise [sql_query, sql_query_clean].inspect
-		# raise sql_query_clean.inspect
-		if sample_size > 0
-			@result = @model_name.where(sql_query).order("random()").limit(sample_size)
-		else
-			@result = @model_name.where(sql_query)
-		end
+		@result = @model_name.where(sql_query).order("random()").limit(sample_size)
 
 		@data = @result.map{|s| s.build_plot_data(x, y)}
 

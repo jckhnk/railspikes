@@ -64,19 +64,30 @@ class CreateKeplerStellarCatalogs < ActiveRecord::Migration
       t.float "W2-I2_mag"
       t.float "Kmag-I1_mag"
       t.float "Kmag-I2_mag"
+      t.float "I1_mag-I2_mag"
       t.float :e_W1mag
       t.float :e_W2mag
       t.float :e_W3mag
       t.float :e_W4mag
-      t.float :e_Jmag
-      t.float :e_Hmag
-      t.float :e_Kmag
-      t.integer :cntr, :limit => 5
-      t.string :cc_flags
-      t.integer :ext_flg
-      t.string :var_flg
-      t.string :ph_qual
-      t.float :r_2mass
+      t.string "AllWISE"
+      t.float "RAJ2000"
+      t.float "DEJ2000"
+      t.float "eeMaj"
+      t.float "eeMin"
+      t.float "eePA"
+      t.integer "ID", :limit => 5
+      t.string "ccf"
+      t.integer "ex"
+      t.string "var"
+      t.string "qph"
+      t.integer "pmRA"
+      t.integer "e_pmRA"
+      t.integer "pmDE"
+      t.integer "e_pmDE"
+      t.float "d2M"
+      t.float "angDist"
+
+
 
       t.timestamps
     end
