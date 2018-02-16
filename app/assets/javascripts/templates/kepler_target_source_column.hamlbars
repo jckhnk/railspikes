@@ -7,7 +7,8 @@
   .caption
     I2
 .clear
-- KeplerStellarCatalog.plot_column_names.each_slice(KeplerStellarCatalog.plot_column_names.length / 2) do |slice|
+- fields = KeplerStellarCatalog.all_column_names
+- fields.each_slice(fields.length / 2 + 1) do |slice|
   .span6.table_data
     %table.table
       - slice.each do |name|
