@@ -37,7 +37,12 @@
 
 .plot
   .span12
+    .axis.y_axis
+      %label
+        = params[:y]
     #flot
+    .axis.x_axis
+      = params[:x]
 
 
 #click_data
@@ -59,8 +64,10 @@
         points: { show: true, fill: 1, fillColor: false }
     },
     xaxis: {
+      label: "jake"
     },
     yaxis: {
+      label: "jake"
     },
     grid: {
       hoverable: true,

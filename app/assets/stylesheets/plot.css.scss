@@ -7,9 +7,32 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .plot {
+  .axis {
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    &.y_axis {
+      float: left;
+      width: 30px;
+      height: 400px;
+      label {
+        transform: rotate(-90deg);
+        transform-origin: center;
+        line-height: 400px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+    &.x_axis {
+      margin-bottom :10px;
+    }
+  }
   #flot {
-    width: 100%;
+    float: left;
+    width: 910px;
     height: 400px;
+    margin-bottom: 5px;
   }
 }
 
