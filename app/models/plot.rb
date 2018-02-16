@@ -13,7 +13,8 @@ module Plot
     end
 
     def plot_column_names
-    	fields = self.column_names - ["kepler_name", "confirmed", "id", "created_at", "updated_at"]
+      number_fields = self.columns_hash.select{|k,v| v.type == :float || v.type == :integer}.keys
+    	fields = number_fields - ["kepler_name", "confirmed", "id", "created_at", "updated_at", "ID", "kepid"]
     end
 
     def csv_column_names
@@ -48,7 +49,7 @@ module Plot
 
     data << hash_data
     return data
-  end 
+  end
 
   def spz_image_url(ch)
     folder = self.kic_kepler_id.to_s.rjust(8, '0')[0..3]

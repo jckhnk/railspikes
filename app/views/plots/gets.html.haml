@@ -14,10 +14,6 @@
   .span12
     = form_tag @plot_route, :method => :post do
       .row
-        .span2
-          %label
-            SQL (Optional)
-          = text_field_tag :sql_query, params[:sql_query], :class => "span2", :placeholder => "W1mag < 5"
         .span3
           %label
             Random Sample Size (2500 max)

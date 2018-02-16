@@ -7,21 +7,15 @@ class PlotsController < ApplicationController
 	def posts
 		x = params[:x]
 		y = params[:y]
+    
 		unless @model_name.plot_column_names.include?(x) && @model_name.plot_column_names.include?(y)
 			raise "params not allowed".inspect
-		end
-
-		if params[:sql_query].blank?
-			sql_query = "(#{x} is not NULL) AND (#{y} is not NULL)"
-		else
-			sql_query = "(#{params['sql_query']}) AND (#{x} is not NULL) AND (#{y} is not NULL)"
 		end
 
 		sample_size = params[:sample_size].to_i
 		sample_size = 2500 if sample_size > 2500 || sample_size == 0
 
-		@result = @model_name.where(sql_query).order("random()").limit(sample_size)
-
+		@result = @model_name.where("(? is not NULL) AND (? is not NULL)", x, y).order("random()").limit(sample_size)
 		@data = @result.map{|s| s.build_plot_data(x, y)}
 
 		require 'csv'
